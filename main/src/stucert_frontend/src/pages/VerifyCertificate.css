@@ -1,0 +1,181 @@
+:root {
+  --primary-color: #4f46e5; /* Indigo */
+  --accent-color: #34d399; /* Soft Teal */
+  --background-color: #f0f0f0; /* Light Cream */
+  --text-color: #1f2937; /* Dark Gray */
+  --error-color: #dc2626; /* Red */
+  --glass-bg: rgba(245, 245, 240, 0.9); /* Semi-transparent cream */
+  --glass-border: rgba(255, 255, 255, 0.3);
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.06);
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+
+/* Verify Container */
+.verify-container {
+  width: 100%;
+  max-width: 800px;
+  min-height: 70vh;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--glass-border);
+  margin: 0 auto;
+  transition: transform 0.3s ease;
+}
+
+.verify-container:hover {
+  transform: translateY(-5px);
+}
+
+/* Header */
+.verify-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.verify-title {
+  font-size: clamp(2.2rem, 3vw, 2.8rem);
+  font-weight: 700;
+  color: var(--primary-color);
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Main Content */
+.verify-main {
+  padding: 1.5rem;
+}
+
+.course-title {
+  font-size: clamp(1.8rem, 2.5vw, 2.2rem);
+  font-weight: 600;
+  color: var(--text-color);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+/* Verification Flow */
+.verification-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.step:hover {
+  transform: translateX(5px);
+}
+
+.step-icon {
+  width: 30px;
+  height: 30px;
+  background: var(--primary-color);
+  color: var(--white);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 16px;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.step-icon.checked {
+  background: var(--accent-color);
+}
+
+.step-text {
+  font-size: clamp(16px, 1.8vw, 18px);
+  color: var(--text-color);
+  font-weight: 500;
+}
+
+.step-status {
+  font-size: clamp(14px, 1.6vw, 16px);
+  color: var(--text-color);
+  opacity: 0.8;
+  margin-left: auto;
+}
+
+.step-status:where([data-value="Verified"]) {
+  color: var(--accent-color);
+  font-weight: 600;
+}
+
+.step-status:where([data-value="Not Verified"], [data-value="DB Error"]) {
+  color: var(--error-color);
+}
+
+/* Loader */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2.5rem 0;
+}
+
+.loader::before {
+  content: "";
+  width: 24px;
+  height: 24px;
+  border: 3px solid var(--primary-color);
+  border-top: 3px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+/* Back Button */
+.back-button {
+  display: block;
+  margin: 0 auto;
+  padding: 0.75rem 2rem;
+  background: var(--primary-color);
+  color: var(--white);
+  border: none;
+  border-radius: 10px;
+  font-size: clamp(14px, 1.5vw, 16px);
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+  box-shadow: 0 4px 12px rgba(79, 70, 229, 0.1);
+}
+
+.back-button:hover {
+  background: #4338ca;
+  transform: translateY(-2px);
+}
+
+.back-button:active {
+  transform: translateY(0);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

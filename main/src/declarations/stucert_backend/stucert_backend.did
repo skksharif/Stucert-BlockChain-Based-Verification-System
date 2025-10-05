@@ -1,0 +1,4 @@
+service : {
+  storeHash: (text) -> (text);
+  verifyHash: (text) -> (bool) query;
+}

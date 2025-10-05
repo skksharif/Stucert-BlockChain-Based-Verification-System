@@ -1,0 +1,26 @@
+{
+  "canisters": {
+    "stucert_backend": {
+      "main": "src/stucert_backend/main.mo",
+      "type": "motoko"
+    },
+    "stucert_frontend": {
+      "dependencies": [
+        "stucert_backend"
+      ],
+      "source": [
+        "src/stucert_frontend/dist"
+      ],
+      "type": "assets",
+      "workspace": "stucert_frontend"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "output_env_file": ".env",
+  "version": 1
+}
